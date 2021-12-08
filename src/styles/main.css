@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&display=swap');
+@import "./button.css";
+@import "./form.css";
+@import "./reservationsList.css";
+
+/* typography */
+
+body, button, input, select, textarea {
+    color: #404040;
+    font-family: "Fuzzy Bubbles", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Fuzzy Bubbles", serif;
+    letter-spacing: 2px;
+}

@@ -1,0 +1,21 @@
+.reservationsList {
+    padding: 0;
+}
+
+.reservationsList ul {
+    padding: 0;
+    background-color: whitesmoke;
+}
+
+.reservation {
+    display: flex;
+    flex-flow: row nowrap;
+    border-bottom: dashed black;
+    width: auto;
+}
+
+.reservationDeny {
+    height: 50%;
+    align-self: center;
+    margin: 0 10%;
+}
