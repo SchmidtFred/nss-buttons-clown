@@ -1,15 +1,24 @@
 {
-    "clowns" : [
-        {
-            "id": 1,
-            "name": "Buttons"
-        },
-
-        {
-            "id": 2,
-            "name": "Lollipop"
-        }
-    ],
-    "reservations": [],
-    "completedReservations": []
+  "clowns": [
+    {
+      "id": 1,
+      "name": "Buttons"
+    },
+    {
+      "id": 2,
+      "name": "Lollipop"
+    }
+  ],
+  "reservations": [
+    {
+      "parentName": "Foddly",
+      "childName": "Fiddly",
+      "headCount": "4",
+      "address": "Foodly Dr. Fopply City",
+      "date": "2022-01-06",
+      "eventLength": "2",
+      "id": 1
+    }
+  ],
+  "completedReservations": []
 }
