@@ -27,7 +27,7 @@ export const ReservationForm = () => {
             <input type="number" name="eventLength" class="input">
         </div>
         
-        <button class="button" id="submitReservation">Submit Reservation</button>`;
+        <button class="button" id="submitReservation"><span id="submitReservationSpan">Submit Reservation</span></button>`;
 
 	return html;
 };
@@ -36,7 +36,7 @@ export const ReservationForm = () => {
 const mainContainer = document.querySelector(".container");
 
 mainContainer.addEventListener("click", (clickEvent) => {
-	if (clickEvent.target.id === "submitReservation") {
+	if (clickEvent.target.id === "submitReservation" || clickEvent.target.id === "submitReservationSpan") {
 		//grab the things typed into fields so we can use them to create a reservation object
 		const userParentName = document.querySelector(
 			"input[name='parentName']"
