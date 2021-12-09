@@ -14,8 +14,28 @@
     width: auto;
 }
 
+.reservationInfo {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.reservation select {
+    height: 33%;
+    align-self: center;
+    margin: 0 5%;
+}
+
 .reservationDeny {
     height: 50%;
     align-self: center;
     margin: 0 10%;
+}
+
+.completed--true {
+    background-color: rebeccapurple;
+    color: whitesmoke;
+}
+
+.completed--true select {
+    visibility: hidden;
 }

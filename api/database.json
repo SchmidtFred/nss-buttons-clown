@@ -18,7 +18,23 @@
       "date": "2021-12-24",
       "eventLength": "5",
       "id": 2
+    },
+    {
+      "parentName": "Joe Sheppard",
+      "childName": "Dakota ",
+      "headCount": "6",
+      "address": "100 NSS Ln, Nashville TN",
+      "date": "2021-12-23",
+      "eventLength": "4",
+      "id": 3
     }
   ],
-  "completedReservations": []
+  "completedReservations": [
+    {
+      "reservationId": 2,
+      "clownId": 1,
+      "dateCompleted": "Thu Dec 09 2021",
+      "id": 1
+    }
+  ]
 }

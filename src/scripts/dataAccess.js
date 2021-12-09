@@ -1,5 +1,7 @@
 const applicationState = {
-	reservations: []
+	reservations: [],
+	clowns: [],
+	completions: []
 };
 
 const API = "http://localhost:8088";
@@ -14,9 +16,39 @@ export const fetchReservations = () => {
 		});
 };
 
+export const fetchClowns = () => {
+	return fetch(`${API}/clowns`)
+		.then((res) => res.json())
+		.then((clowns) => {
+			applicationState.clowns = clowns;
+		});
+};
+
+export const fetchCompletedReservations = () => {
+	return fetch(`${API}/completedReservations`)
+		.then((res) => res.json())
+		.then((completions) => {
+			applicationState.completions = completions;
+		});
+};
+
 //get from application state
 export const getReservations = () => {
-	return applicationState.reservations.map((res) => ({ ...res }));
+	return applicationState.reservations
+		.map((res) => ({ ...res }))
+		.map((res) => {
+			res.completed = applicationState.completions.some((comp) => comp.reservationId === res.id)
+			return res;
+		})
+		.sort((a,b) => a.completed - b.completed);
+};
+
+export const getClowns = () => {
+	return applicationState.clowns.map((clown) => ({ ...clown }));
+};
+
+export const getCompletions = () => {
+	return applicationState.completions.map((comp) => ({ ...comp }));
 };
 
 //grab the main containrer
@@ -43,4 +75,20 @@ export const deleteReservation = (id) => {
 	return fetch(`${API}/reservations/${id}`, { method: "DELETE" }).then(() =>
 		mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
 	);
+};
+
+export const saveCompletion = (completion) => {
+	const fetchOptions = {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify(completion)
+	};
+
+	return fetch(`${API}/completedReservations`, fetchOptions)
+		.then((res = res.json()))
+		.then(() => {
+			mainContainer.dispatchEvent(new CustomEvent("stateChanged"));
+		});
 };
